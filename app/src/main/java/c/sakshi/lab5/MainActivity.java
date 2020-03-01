@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         sharedPreferences = getSharedPreferences("c.sakshi.lab5", Context.MODE_PRIVATE);
         if(!sharedPreferences.getString("username","").equals("")) {
             Intent intent = new Intent(this, Main2Activity.class);

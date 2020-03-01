@@ -54,6 +54,9 @@ public class Main3Activity extends AppCompatActivity {
             title = "NOTE_"+(noteid+1);
             dbHelper.updateNote(title,date,content,username);
         }
+        Intent intent = new Intent(this,Main2Activity.class);
+        startActivity(intent);
+
     }
 
 }

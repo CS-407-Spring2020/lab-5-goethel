@@ -11,6 +11,7 @@ public class DBHelper {
         this.sqLiteDatabase = sqLiteDatabase;
     }
     public void createTable() {
+
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS notes "+"(id INTEGER PRIMARY KEY, username TEXT, date TEXT, title TEXT, content TEXT , src TEXT)");
     }
     public ArrayList<Note> readNotes(String username) {
@@ -43,6 +44,6 @@ public class DBHelper {
     }
     public void updateNote(String title, String date, String content, String username) {
         createTable();
-        sqLiteDatabase.execSQL(String.format("UPDATE notes set content = '%s', date = '%s' where title = '%s' and username = '%s')",content,date,title,username));
+        sqLiteDatabase.execSQL(String.format("UPDATE notes SET content = '%s', date = '%s' WHERE (title = '%s' AND username = '%s');",content,date,title,username));
     }
 }
